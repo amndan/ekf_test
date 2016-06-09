@@ -1,0 +1,7 @@
+<launch>
+
+<node pkg="ekf_test" type="ekf_test_node" name="ekfTestNode"/>
+
+<include file="$(find ekf_test)/launch/ekf_template_3.launch"/>
+
+</launch>
