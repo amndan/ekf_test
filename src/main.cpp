@@ -78,7 +78,7 @@ void calPose(const ros::TimerEvent& event)
   geometry_msgs::PoseWithCovarianceStamped pose;
   geometry_msgs::PoseStamped poseRviz;
   pose.header.stamp = now;
-  pose.header.frame_id = "odom";
+  pose.header.frame_id = "map";
   pose.pose.pose.position.x = std::sin(dNow);
   pose.pose.pose.position.y = std::sin(dNow);
   pose.pose.pose.position.z = 0.0;
@@ -92,7 +92,7 @@ void calPose(const ros::TimerEvent& event)
   pose.pose.covariance.elems[28] = poseVar;
   pose.pose.covariance.elems[35] = poseVar;
 
-  poseRviz.header.frame_id = "odom";
+  poseRviz.header.frame_id = "map";
   poseRviz.pose.orientation = pose.pose.pose.orientation;
   poseRviz.pose.position = pose.pose.pose.position;
 

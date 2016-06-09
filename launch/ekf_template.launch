@@ -94,7 +94,7 @@
            integration of velocities leads to slowly increasing error in the absolute (pose) variable. For position variables,
            this is acceptable. For orientation variables, it can lead to trouble. Users should make sure that all orientation
            variables have at least one source of absolute measurement. -->
-      <param name="odom0_differential" value="true"/>
+      <param name="odom0_differential" value="false"/>
 
       <!-- When the node starts, if this parameter is true, then the first measurement is treated as a "zero point" for all
            future measurements. While you can achieve the same effect with the differential paremeter, the key difference is
@@ -172,7 +172,7 @@
       <!--  Placeholder for output topic remapping
       <remap from="odometry/filtered" to=""/>
       -->
-
+<remap from="odometry/filtered" to="odometry/filtered_2"/>
     </node>
 
 </launch>
