@@ -23,7 +23,7 @@ int main(int argc, char** argv)
   _pubPose = n.advertise<geometry_msgs::PoseWithCovarianceStamped>("pose", 1000);
   _pubPoseRviz = n.advertise<geometry_msgs::PoseStamped>("poseRviz", 1000);
   _pubOdom = n.advertise<nav_msgs::Odometry>("odom", 1000);
-  ros::Timer timPose = n.createTimer(ros::Duration(0.5), calPose);
+  ros::Timer timPose = n.createTimer(ros::Duration(1), calPose);
   ros::Timer timOdom = n.createTimer(ros::Duration(0.05), calOdom);
 
   ros::spin();
@@ -84,7 +84,7 @@ void calPose(const ros::TimerEvent& event)
   pose.pose.pose.position.z = 0.0;
   tf::quaternionTFToMsg(tf::createQuaternionFromYaw(0.0), pose.pose.pose.orientation);
 
-  double poseVar = 1e-100;
+  double poseVar = 5;
   pose.pose.covariance.elems[0] = poseVar;
   pose.pose.covariance.elems[7] = poseVar;
   pose.pose.covariance.elems[14] = poseVar;
